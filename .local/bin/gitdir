@@ -1,0 +1,9 @@
+#!/bin/zsh 
+export PATH="~/.config/bin:$PATH"
+# zsh script to make and initialize and git repo
+mkdir $1
+cd $1
+touch README.md
+echo "#$1" >> README.md
+git init 
+git add README.md

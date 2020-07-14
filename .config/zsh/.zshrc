@@ -1,0 +1,70 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+
+source ~/.config/zsh/.zprofile
+
+# Basic zsh setting & themes
+PATH=$PATH:$HOME/.bin
+setopt no_list_ambiguous
+bindkey -v
+
+# Setting up Defaults
+export EDITOR='nvim'
+export TERMINAL='alacritty'
+export BROWSER='firefox'
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
+
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+function rrcd()
+{
+    temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"
+    ranger --choosedir="$temp_file" -- "${@:-$PWD}"
+    if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
+        cd -- "$chosen_dir"
+    fi
+    rm -f -- "$temp_file"
+}
+# Aliases
+alias zshconfig="nvim ~/.config/zsh/.zshrc"
+alias rr="ranger"
+alias rrconfig="nvim ~/.config/ranger/rc.conf"
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias f='ranger'
+alias tty='tty-clock -C6 -c -t'
+alias s='startx'
+alias pac='sudo pacman'
+alias commit='git add -A; git commit -m'
+alias coding="rrcd /MassStorage/coding/"
+alias media="rrcd /MassStorage/Media/"
+alias vimconfig="nvim ~/.config/nvim/init.vim"
+
+# Keybindings
+bindkey '^ ' autosuggest-accept
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
