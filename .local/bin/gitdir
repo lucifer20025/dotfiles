@@ -1,6 +1,7 @@
 #!/bin/zsh 
 export PATH="~/.config/bin:$PATH"
 # zsh script to make and initialize and git repo
+[ ! -n "$1" ] && printf "name of directory is required\n" && exit
 mkdir $1
 cd $1
 touch README.md
