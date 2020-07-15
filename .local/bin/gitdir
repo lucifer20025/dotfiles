@@ -8,3 +8,8 @@ touch README.md
 echo "# $1" >> README.md
 git init 
 git add README.md
+
+# This part adds remote
+[ ! -n "$2" ] && exit
+git commit -m "first commit"
+git remote add origin $2
