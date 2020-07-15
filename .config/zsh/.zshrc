@@ -1,3 +1,9 @@
+#           _              
+#   _______| |__  _ __ ___ 
+#  |_  / __| '_ \| '__/ __| 
+#   / /\__ \ | | | | | (__ 
+#  /___|___/_| |_|_|  \___|
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -47,9 +53,7 @@ alias rrconfig="nvim ~/.config/ranger/rc.conf"
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias f='ranger'
 alias tty='tty-clock -C6 -c -t'
-alias s='startx'
 alias pac='sudo pacman'
 alias commit='git add -A; git commit -m'
 alias coding="rrcd /MassStorage/coding/"
@@ -68,3 +72,4 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
