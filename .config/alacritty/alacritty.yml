@@ -8,12 +8,12 @@ env:
 
 window:
   dimensions:
-    columns: 90
+    columns: 100
     lines: 35
   padding:
     x: 6
     y: 6
-  decorations: none
+  decorations: full
 scrolling:
   history: 10000
   multiplier: 3
