@@ -38,7 +38,7 @@ plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
-function rrcd()
+function rrcd() # allows for changing dir to current ranger dir after exiting
 {
     temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"
     ranger --choosedir="$temp_file" -- "${@:-$PWD}"
@@ -51,7 +51,6 @@ function rrcd()
 alias zshconfig="nvim ~/.config/zsh/.zshrc"
 alias rr="ranger"
 alias rrconfig="nvim ~/.config/ranger/rc.conf"
-alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias tty='tty-clock -C6 -c -t'
@@ -60,6 +59,7 @@ alias commit='git add -A; git commit -m'
 alias coding="rrcd /MassStorage/coding/"
 alias media="rrcd /MassStorage/Media/"
 alias vimconfig="nvim ~/.config/nvim/init.vim"
+alias x="exit"
 
 # Keybindings
 bindkey '^ ' autosuggest-accept
