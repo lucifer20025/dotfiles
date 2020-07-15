@@ -5,6 +5,6 @@ export PATH="~/.config/bin:$PATH"
 mkdir $1
 cd $1
 touch README.md
-echo "#$1" >> README.md
+echo "# $1" >> README.md
 git init 
 git add README.md
