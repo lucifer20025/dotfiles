@@ -6,8 +6,8 @@ set relativenumber
 set nohlsearch
 set hidden
 set noerrorbells
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set expandtab
 set smartindent
 set nu
@@ -26,7 +26,8 @@ set spell
 set cursorline
 " Give more space for displaying messages.
 set cmdheight=2
-
+" Set indent to 4 for python
+autocmd Filetype python setlocal tabstop=4 
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
