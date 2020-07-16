@@ -1,3 +1,9 @@
+" ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
+" ██║   ██║██║████╗ ████║██╔══██╗██╔════╝
+" ██║   ██║██║██╔████╔██║██████╔╝██║     
+" ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║     
+"  ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
+"   ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
 syntax on
 
 set guicursor=
@@ -42,10 +48,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree' "file tree 
 Plug 'itchyny/lightline.vim' "status line for vim
-"Plug 'phanviet/vim-monokai-pro'
-"Plug 'fneu/breezy'
-"Plug 'erichdongubler/vim-sublime-monokai'
 Plug 'sainnhe/sonokai'
+Plug 'yggdroot/indentline'
 
 call plug#end()
 
@@ -53,6 +57,7 @@ let g:sonokai_style = 'shusia'
 let g:sonokai_enable_italic = 0
 let g:sonokai_disable_italic_comment = 0
 let g:sonokai_transparent_background = 1
+let g:indent_guides_enable_on_vim_startup = 1 
 colorscheme sonokai
 let g:lightline = {'colorscheme' : 'sonokai'}
 
@@ -69,4 +74,5 @@ nnoremap <leader>k <C-W>k
 nnoremap <leader>l <C-W>l   
 nnoremap <leader>v :vsplit 
 nnoremap <C-s> :source %<CR>
-
+autocmd Filetype vim nnoremap <leader>pi :PlugInstall<CR>
+autocmd Filetype vim nnoremap <leader>pc :PlugClean<CR>
