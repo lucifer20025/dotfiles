@@ -30,6 +30,8 @@ set noshowmode
 set nofoldenable " disables folding
 set spell
 set cursorline
+set encoding=UTF-8
+filetype plugin indent on
 " Give more space for displaying messages.
 set cmdheight=2
 " Set indent to 4 for python
@@ -50,17 +52,18 @@ Plug 'preservim/nerdtree' "file tree
 Plug 'itchyny/lightline.vim' "status line for vim
 Plug 'sainnhe/sonokai'
 Plug 'yggdroot/indentline'
-
 call plug#end()
 
+"Theme options
+colorscheme sonokai
 let g:sonokai_style = 'shusia'
 let g:sonokai_enable_italic = 0
 let g:sonokai_disable_italic_comment = 0
 let g:sonokai_transparent_background = 1
-let g:indent_guides_enable_on_vim_startup = 1 
-colorscheme sonokai
-let g:lightline = { 'colorscheme' : 'sonokai', 'separator' : { 'left': '', 'right': '' } }
 
+" indent and status line
+let g:indent_guides_enable_on_vim_startup = 1 
+let g:lightline = { 'colorscheme' : 'sonokai', 'separator' : { 'left': '', 'right': '' } }
 
 "Keybindings
 nnoremap <Up> :resize +2<CR> 
@@ -74,6 +77,10 @@ nnoremap <leader>j <C-W>j
 nnoremap <leader>k <C-W>k
 nnoremap <leader>l <C-W>l   
 nnoremap <leader>v :vsplit 
-nnoremap <C-s> :source %<CR>
+nnoremap <leader>s :w<CR>
+nnoremap <leader>q :qa!<CR>
+nnoremap <leader>z :wqa!<CR>
+nnoremap <C-s> :source ~/.config/nvim/init.vim<CR>
+nnoremap <leader>, :tabedit ~/.config/nvim/init.vim<CR>
 autocmd Filetype vim nnoremap <leader>pi :PlugInstall<CR>
 autocmd Filetype vim nnoremap <leader>pc :PlugClean<CR>
