@@ -59,7 +59,8 @@ let g:sonokai_disable_italic_comment = 0
 let g:sonokai_transparent_background = 1
 let g:indent_guides_enable_on_vim_startup = 1 
 colorscheme sonokai
-let g:lightline = {'colorscheme' : 'sonokai'}
+let g:lightline = { 'colorscheme' : 'sonokai', 'separator' : { 'left': '', 'right': '' } }
+
 
 "Keybindings
 nnoremap <Up> :resize +2<CR> 
