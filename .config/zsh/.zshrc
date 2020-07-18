@@ -49,6 +49,7 @@ function rrcd() # allows for changing dir to current ranger dir after exiting
 }
 # Aliases
 alias zshconfig="nvim ~/.config/zsh/.zshrc"
+alias gstat="git status | more"
 alias ll="ls -l"
 alias la="ls -a"
 alias lal="ls -al"

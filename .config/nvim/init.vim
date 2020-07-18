@@ -31,7 +31,7 @@ set nofoldenable " disables folding
 set spell
 set cursorline
 set encoding=UTF-8
-filetype plugin indent on
+filetype plugin indent on  "Enabling Plugin & Indent
 " Give more space for displaying messages.
 set cmdheight=2
 " Set indent to 4 for python
@@ -49,12 +49,21 @@ let mapleader=" "
 call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree' "file tree 
+Plug 'ap/vim-css-color' "Displays a preview of colors with CSS
+Plug 'sheerun/vim-polyglot' " language pack for vim
 Plug 'itchyny/lightline.vim' "status line for vim
 Plug 'sainnhe/sonokai'
 Plug 'yggdroot/indentline'
+Plug 'mattn/emmet-vim' 
+
 call plug#end()
 
 "Theme options
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
 colorscheme sonokai
 let g:sonokai_style = 'shusia'
 let g:sonokai_enable_italic = 0
@@ -64,6 +73,13 @@ let g:sonokai_transparent_background = 1
 " indent and status line
 let g:indent_guides_enable_on_vim_startup = 1 
 let g:lightline = { 'colorscheme' : 'sonokai', 'separator' : { 'left': '', 'right': '' } }
+
+" emmet settings
+let g:user_emmet_leader_key=','
+let g:user_emmet_mode='in'    "enables emmet in insert and normal mode
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
 
 "Keybindings
 nnoremap <Up> :resize +2<CR> 
@@ -77,9 +93,8 @@ nnoremap <leader>j <C-W>j
 nnoremap <leader>k <C-W>k
 nnoremap <leader>l <C-W>l   
 nnoremap <leader>v :vsplit 
-nnoremap <leader>s :w<CR>
 nnoremap <leader>q :qa!<CR>
-nnoremap <leader>z :wqa!<CR>
+nnoremap <leader>z :wqa<CR>
 nnoremap <C-s> :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>, :tabedit ~/.config/nvim/init.vim<CR>
 autocmd Filetype vim nnoremap <leader>pi :PlugInstall<CR>
