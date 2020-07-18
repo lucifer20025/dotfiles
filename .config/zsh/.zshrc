@@ -26,8 +26,8 @@ export TERMINAL='alacritty'
 export BROWSER='firefox'
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
@@ -74,7 +74,7 @@ bindkey '^ ' autosuggest-accept
 
 
 
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
