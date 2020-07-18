@@ -46,7 +46,7 @@ set updatetime=50
 set shortmess+=c
 
 let mapleader=" "
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'preservim/nerdtree' "file tree 
 Plug 'ap/vim-css-color' "Displays a preview of colors with CSS
