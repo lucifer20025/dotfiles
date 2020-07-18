@@ -12,6 +12,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+HISTFILE=~/.config/zsh/.zsh_history
+HISTSIZE=10000
+SAVEHIST=$HISTSIZE
+
 
 source ~/.config/zsh/.zprofile
 
