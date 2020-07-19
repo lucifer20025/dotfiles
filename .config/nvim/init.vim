@@ -97,7 +97,13 @@ nnoremap <leader>l <C-W>l
 nnoremap <leader>v :vsplit 
 nnoremap <leader>q :qa!<CR>
 nnoremap <leader>z :wqa<CR>
+nnoremap <leader>s :w<CR>
 nnoremap <C-s> :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>, :tabedit ~/.config/nvim/init.vim<CR>
 autocmd Filetype vim nnoremap <leader>pi :PlugInstall<CR>
 autocmd Filetype vim nnoremap <leader>pc :PlugClean<CR>
+
+" Keybindings for commenting stuff out
+autocmd Filetype python noremap <leader>/ :norm I#<CR>
+autocmd Filetype vim vnoremap <leader>/ :norm I"<CR>
+autocmd Filetype c++ vnoremap <leader>/ :norm I//<CR>
