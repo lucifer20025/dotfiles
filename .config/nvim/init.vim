@@ -4,8 +4,10 @@
 " ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║     
 "  ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
 "   ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
-syntax on
 
+" Basic Settings
+syntax on
+set clipboard+=unnamedplus
 set guicursor=
 set noshowmatch
 set relativenumber
@@ -31,20 +33,20 @@ set nofoldenable " disables folding
 set spell
 set cursorline
 set encoding=UTF-8
-filetype plugin indent on  "Enabling Plugin & Indent
+filetype plugin indent on  "Enabling Plug-in & Indent
 " Give more space for displaying messages.
 set cmdheight=2
 " Set indent to 4 for python
 autocmd Filetype python setlocal tabstop=4 
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" Having longer update time (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=50
-
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
+" Plugins
 let mapleader=" "
 call plug#begin('~/.config/nvim/plugged')
 
