@@ -11,4 +11,4 @@ This repository is intended to keep a backup of my configs and scripts
 - [gitdir](.local/bin/gitdir)
 - [booksplit](.local/bin/booksplit) (taken from lukesmithxyz)
 - [tag](.local/bin/tag) (taken from lukesmithxyz)
-#
+
