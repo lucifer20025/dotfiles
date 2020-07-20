@@ -7,43 +7,28 @@
 
 " Basic Settings
 syntax on
-set clipboard+=unnamedplus
+filetype plugin indent on  "Enabling Plug-in & Indent
+set nu rnu "sets line numbers
+set encoding=UTF-8 
+set clipboard+=unnamedplus "makes vim use computer's clipboard
 set guicursor=
-set noshowmatch
-set relativenumber
-set nohlsearch
+set noshowmatch nohlsearch nowrap noswapfile nobackup noshowmode
 set hidden
 set noerrorbells
-set tabstop=2 softtabstop=2
-set shiftwidth=2
-set expandtab
-set smartindent
-set nu
-set nowrap
-set smartcase
-set noswapfile
-set nobackup
-set undodir=~/.config/nvim/undodir
-set undofile
+set tabstop=2 softtabstop=2 expandtab shiftwidth=2
+autocmd Filetype python setlocal tabstop=4 " Set indent to 4 for python
+set smartindent smartcase
+set undodir=~/.config/nvim/undodir undofile
 set incsearch
 set termguicolors
 set scrolloff=8
-set noshowmode
 set nofoldenable " disables folding
 set spell
 set cursorline
-set encoding=UTF-8
-filetype plugin indent on  "Enabling Plug-in & Indent
-" Give more space for displaying messages.
-set cmdheight=2
-" Set indent to 4 for python
-autocmd Filetype python setlocal tabstop=4 
+set cmdheight=2 " Give more space for displaying messages.
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
-" Having longer update time (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
 set updatetime=50
-" Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
 " Plugins
@@ -54,7 +39,7 @@ Plug 'preservim/nerdtree' "file tree
 Plug 'ap/vim-css-color' "Displays a preview of colors with CSS
 Plug 'sheerun/vim-polyglot' " language pack for vim
 Plug 'itchyny/lightline.vim' "status line for vim
-Plug 'sainnhe/sonokai'
+Plug 'morhetz/gruvbox'
 Plug 'yggdroot/indentline'
 Plug 'mattn/emmet-vim' 
 
@@ -66,22 +51,18 @@ if exists('+termguicolors')
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
-colorscheme sonokai
-let g:sonokai_style = 'shusia'
-let g:sonokai_enable_italic = 0
-let g:sonokai_disable_italic_comment = 0
-let g:sonokai_transparent_background = 1
+colorscheme gruvbox
+set background=dark
 
 " indent and status line
 let g:indent_guides_enable_on_vim_startup = 1 
-let g:lightline = { 'colorscheme' : 'sonokai', 'separator' : { 'left': '', 'right': '' } }
+let g:lightline = { 'colorscheme' : 'gruvbox', 'separator' : { 'left': '', 'right': '' } }
 
 " emmet settings
 let g:user_emmet_leader_key=','
 let g:user_emmet_mode='in'    "enables emmet in insert and normal mode
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
-
 
 "Keybindings
 nnoremap <Up> :resize +2<CR> 
