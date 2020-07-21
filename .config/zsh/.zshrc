@@ -12,6 +12,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# enable history
 HISTFILE=~/.config/zsh/.zsh_history
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
@@ -22,6 +23,27 @@ zstyle ":completion:*" menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+    [[ $1 = 'block' ]]; then
+      echo -ne '\e[1 q'
+    elif [[ ${KEYMAP} == main ]] ||
+      [[ ${KEYMAP} == viins ]] ||
+      [[ ${KEYMAP} = '' ]] ||
+      [[ $1 = 'beam' ]]; then
+          echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Basic zsh setting & themes
 PATH=$PATH:$HOME/.local/bin
@@ -40,8 +62,10 @@ source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/.zprofile
+source ~/.config/zsh/plugins/zsh-colored-man-pages/colored-man-pages.plugin.zsh
+source ~/.config/zsh/plugins/colorize/colorize.plugin.zsh
 
-function rrcd() # allows for changing dir to current ranger dir after exiting
+function rcd() # allows for changing dir to current ranger dir after exiting
 {
     temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"
     ranger --choosedir="$temp_file" -- "${@:-$PWD}"
@@ -52,22 +76,22 @@ function rrcd() # allows for changing dir to current ranger dir after exiting
 }
 
 # Aliases
-alias zshconfig="nvim ~/.config/zsh/.zshrc"
-alias zshsource="source ~/.config/zsh/.zshrc"
+alias zshconf="nvim ~/.config/zsh/.zshrc"
+alias zshsrc="source ~/.config/zsh/.zshrc"
 alias sudo="sudo "
 alias gstat="git status | more"
 alias ll="ls -l"
 alias la="ls -a"
 alias lal="ls -al"
-alias downloads="rrcd /MassStorage/downloads/"
+alias downloads="rcd /MassStorage/downloads/"
 alias r="ranger"
-alias rrconfig="nvim ~/.config/ranger/rc.conf"
+alias rrconf="nvim ~/.config/ranger/rc.conf"
 alias vim="nvim"
 alias pac="sudo pacman"
 alias commit="git add -A; git commit -m"
-alias coding="rrcd /MassStorage/coding/"
-alias media="rrcd /MassStorage/Media/"
-alias vimconfig="nvim ~/.config/nvim/init.vim"
+alias coding="rcd /MassStorage/coding/"
+alias media="rcd /MassStorage/Media/"
+alias vimconf="nvim ~/.config/nvim/init.vim"
 
 # Keybindings
 bindkey "^ " autosuggest-accept
