@@ -16,25 +16,32 @@ HISTFILE=~/.config/zsh/.zsh_history
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ":completion:*" menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.
 
 source ~/.config/zsh/.zprofile
 
 # Basic zsh setting & themes
-PATH=$PATH:$HOME/.bin
+PATH=$PATH:$HOME/.local/bin
 setopt no_list_ambiguous
 bindkey -v
+export KEYTIMEOUT=1
 
 # Setting up Defaults
-export EDITOR='nvim'
-export TERMINAL='alacritty'
-export BROWSER='firefox'
+export EDITOR="nvim"
+export TERMINAL="alacritty"
+export BROWSER="firefox"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
-plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
-
+plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 
 # User configuration
 
@@ -53,6 +60,7 @@ function rrcd() # allows for changing dir to current ranger dir after exiting
 }
 # Aliases
 alias zshconfig="nvim ~/.config/zsh/.zshrc"
+alias zshsource="source ~/.config/zsh/.zshrc"
 alias sudo="sudo "
 alias gstat="git status | more"
 alias ll="ls -l"
@@ -61,23 +69,21 @@ alias lal="ls -al"
 alias downloads="rrcd /MassStorage/downloads/"
 alias r="ranger"
 alias rrconfig="nvim ~/.config/ranger/rc.conf"
-alias vi='nvim'
-alias vim='nvim'
-alias tty='tty-clock -C6 -c -t'
-alias pac='sudo pacman'
-alias commit='git add -A; git commit -m'
+alias vi="nvim"
+alias vim="nvim"
+alias tty="tty-clock -C6 -c -t"
+alias pac="sudo pacman"
+alias commit="git add -A; git commit -m"
 alias coding="rrcd /MassStorage/coding/"
 alias media="rrcd /MassStorage/Media/"
 alias vimconfig="nvim ~/.config/nvim/init.vim"
 alias x="exit"
 
 # Keybindings
-bindkey '^ ' autosuggest-accept
+bindkey "^ " autosuggest-accept
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
 
 source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 
