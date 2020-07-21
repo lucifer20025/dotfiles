@@ -23,8 +23,6 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
-source ~/.config/zsh/.zprofile
-
 # Basic zsh setting & themes
 PATH=$PATH:$HOME/.local/bin
 setopt no_list_ambiguous
@@ -35,20 +33,14 @@ export KEYTIMEOUT=1
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="firefox"
+export LANG=en_US.UTF-8
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Sourcing my plugins
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.config/zsh/.zprofile
 
-plugins=(zsh-autosuggestions zsh-syntax-highlighting)
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
 function rrcd() # allows for changing dir to current ranger dir after exiting
 {
     temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"
@@ -58,6 +50,7 @@ function rrcd() # allows for changing dir to current ranger dir after exiting
     fi
     rm -f -- "$temp_file"
 }
+
 # Aliases
 alias zshconfig="nvim ~/.config/zsh/.zshrc"
 alias zshsource="source ~/.config/zsh/.zshrc"
@@ -69,24 +62,15 @@ alias lal="ls -al"
 alias downloads="rrcd /MassStorage/downloads/"
 alias r="ranger"
 alias rrconfig="nvim ~/.config/ranger/rc.conf"
-alias vi="nvim"
 alias vim="nvim"
-alias tty="tty-clock -C6 -c -t"
 alias pac="sudo pacman"
 alias commit="git add -A; git commit -m"
 alias coding="rrcd /MassStorage/coding/"
 alias media="rrcd /MassStorage/Media/"
 alias vimconfig="nvim ~/.config/nvim/init.vim"
-alias x="exit"
 
 # Keybindings
 bindkey "^ " autosuggest-accept
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
-
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-
