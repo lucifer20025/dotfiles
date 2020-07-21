@@ -44,7 +44,7 @@ source ~/.config/zsh/.zprofile
 source ~/.config/zsh/plugins/zsh-colored-man-pages/colored-man-pages.plugin.zsh
 source ~/.config/zsh/plugins/colorize/colorize.plugin.zsh
 
-function rcd() # allows for changing dir to current ranger dir after exiting
+rcd() # allows for changing dir to current ranger dir after exiting
 {
     temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"
     ranger --choosedir="$temp_file" -- "${@:-$PWD}"
