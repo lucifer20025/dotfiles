@@ -37,13 +37,8 @@ export TERMINAL="alacritty"
 export BROWSER="firefox"
 export LANG=en_US.UTF-8
 
-# Sourcing my plugins
-source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
-source ~/.config/zsh/.zprofile
-source ~/.config/zsh/plugins/zsh-colored-man-pages/colored-man-pages.plugin.zsh
-source ~/.config/zsh/plugins/colorize/colorize.plugin.zsh
+# sourcing my alias file
+source ~/.config/zsh/alias.zsh
 
 rcd() # allows for changing dir to current ranger dir after exiting
 {
@@ -54,36 +49,6 @@ rcd() # allows for changing dir to current ranger dir after exiting
     fi
     rm -f -- "$temp_file"
 }
-
-vicd()
-{
-    local dst="$(command vifm --choose-dir - "$@")"
-    if [ -z "$dst" ]; then
-        echo 'Directory picking cancelled/failed'
-        return 1
-    fi
-    cd "$dst"
-}
-
-# Aliases
-alias zshconf="nvim ~/.config/zsh/.zshrc"
-alias tree="tree --color=auto"
-alias zshsrc="source ~/.config/zsh/.zshrc"
-alias sudo="sudo "
-alias gst="git status | more"
-alias ls="ls --color"
-alias ll="ls -l --color"
-alias la="ls -a --color"
-alias lal="ls -al --color"
-alias downloads="rcd /MassStorage/downloads/"
-alias r="ranger"
-alias rrconf="nvim ~/.config/ranger/rc.conf"
-alias vim="nvim"
-alias pac="sudo pacman"
-alias commit="git add -A; git commit -m"
-alias coding="rcd /MassStorage/coding/"
-alias media="rcd /MassStorage/Media/"
-alias vimconf="nvim ~/.config/nvim/init.vim"
 
 # Keybindings
 bindkey "^ " autosuggest-accept

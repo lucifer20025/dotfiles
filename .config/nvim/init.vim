@@ -37,11 +37,11 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'preservim/nerdtree' "file tree 
 Plug 'ap/vim-css-color' "Displays a preview of colors with CSS
-Plug 'sheerun/vim-polyglot' " language pack for vim
 Plug 'itchyny/lightline.vim' "status line for vim
 Plug 'morhetz/gruvbox'
 Plug 'yggdroot/indentline'
 Plug 'mattn/emmet-vim' 
+Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
