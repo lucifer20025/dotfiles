@@ -26,11 +26,12 @@ _comp_options+=(globdots)		# Include hidden files.
 
 # Basic zsh setting & themes
 PATH=$PATH:$HOME/.local/bin
-setopt no_list_ambiguous
+setopt no_list_ambiguous 
 bindkey -v
 export KEYTIMEOUT=1
 
 # Setting up Defaults
+setopt autocd # enable cd with just file paths
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="firefox"
@@ -56,12 +57,14 @@ rcd() # allows for changing dir to current ranger dir after exiting
 
 # Aliases
 alias zshconf="nvim ~/.config/zsh/.zshrc"
+alias tree="tree --color=auto"
 alias zshsrc="source ~/.config/zsh/.zshrc"
 alias sudo="sudo "
 alias gst="git status | more"
-alias ll="ls -l"
-alias la="ls -a"
-alias lal="ls -al"
+alias ls="ls --color"
+alias ll="ls -l --color"
+alias la="ls -a --color"
+alias lal="ls -al --color"
 alias downloads="rcd /MassStorage/downloads/"
 alias r="ranger"
 alias rrconf="nvim ~/.config/ranger/rc.conf"
