@@ -55,6 +55,16 @@ rcd() # allows for changing dir to current ranger dir after exiting
     rm -f -- "$temp_file"
 }
 
+vicd()
+{
+    local dst="$(command vifm --choose-dir - "$@")"
+    if [ -z "$dst" ]; then
+        echo 'Directory picking cancelled/failed'
+        return 1
+    fi
+    cd "$dst"
+}
+
 # Aliases
 alias zshconf="nvim ~/.config/zsh/.zshrc"
 alias tree="tree --color=auto"
