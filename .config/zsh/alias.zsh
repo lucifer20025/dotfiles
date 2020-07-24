@@ -7,7 +7,7 @@ source ~/.config/zsh/plugins/zsh-colored-man-pages/colored-man-pages.plugin.zsh
 source ~/.config/zsh/plugins/colorize/colorize.plugin.zsh
 source ~/.local/share/lscolors.sh
 
-# Aliases
+# Abbreviations
 abbr zshcfg="nvim ~/.config/zsh/.zshrc"
 abbr zshsrc="source ~/.config/zsh/.zshrc"
 abbr sudo="sudo "
@@ -24,5 +24,4 @@ abbr pac="sudo pacman"
 abbr coding="rcd /MassStorage/coding/"
 abbr media="rcd /MassStorage/Media/"
 abbr vimcfg="nvim ~/.config/nvim/init.vim"
-
-
+abbr aliascfg="nvim ~/.config/zsh/alias.zsh"
