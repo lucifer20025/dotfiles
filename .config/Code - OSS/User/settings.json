@@ -1,0 +1,71 @@
+{
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Monokai Vibrant",
+  "editor.fontSize": 18,
+  "editor.fontFamily": "'JetBrains Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.formatOnSave": true,
+  "editor.acceptSuggestionOnEnter": "off",
+  "[python,markdown]": {
+    "editor.tabSize": 4
+  },
+  "editor.tabSize": 2,
+  "terminal.integrated.fontFamily": "'MesloLGS NF'",
+  "terminal.integrated.fontSize": 16,
+  "vim.leader": "<space>",
+  "vim.incsearch": true,
+  "vim.startInInsertMode": true,
+  "vim.cursorStylePerMode.insert": "line",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "h"],
+      "after": ["<C-w>", "h"]
+    },
+    {
+      "before": ["<leader>", "j"],
+      "after": ["<C-w>", "j"]
+    },
+    {
+      "before": ["<leader>", "k"],
+      "after": ["<C-w>", "k"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "after": ["<C-w>", "l"]
+    },
+    {
+      "before": ["Z", "Z"],
+      "after": [":wq"]
+    },
+    {
+      "before": ["<leader>", "s"],
+      "after": [":w"]
+    },
+    {
+      "before": ["<leader>", "q"],
+      "after": [":qa!"]
+    },
+    {
+      "before": ["<leader>", "z"],
+      "after": [":wqa"]
+    },
+    {
+      "before": ["Z", "Q"],
+      "after": [":q!"]
+    },
+    {
+      "before": ["Z", "Q"],
+      "after": [":q!"]
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["Z", "Q"],
+      "after": [":q!"]
+    }
+  ]
+}
