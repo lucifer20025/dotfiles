@@ -41,7 +41,7 @@ Plug 'itchyny/lightline.vim' "status line for vim
 Plug 'morhetz/gruvbox'
 Plug 'yggdroot/indentline'
 Plug 'mattn/emmet-vim' 
-Plug 'plasticboy/vim-markdown'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -57,6 +57,7 @@ set background=dark
 " indent and status line
 let g:indent_guides_enable_on_vim_startup = 1 
 let g:lightline = { 'colorscheme' : 'gruvbox', 'separator' : { 'left': '', 'right': '' } }
+let g:polyglot_disabled = ['markdown']
 
 " emmet settings
 let g:user_emmet_leader_key=','
