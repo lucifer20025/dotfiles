@@ -26,7 +26,7 @@ set nofoldenable " disables folding
 set spell
 set cursorline
 set cmdheight=2 " Give more space for displaying messages.
-set colorcolumn=80
+set colorcolumn=100 "complying with new linux guidelines
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 set updatetime=50
 set shortmess+=c
@@ -79,13 +79,14 @@ nnoremap <leader>l <C-W>l
 nnoremap <leader>v :vsplit 
 nnoremap <leader>q :qa!<CR>
 nnoremap <leader>z :wqa<CR>
-nnoremap <leader>s :w<CR>
+nnoremap <leader>s :wa<CR>
 nnoremap <C-s> :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>, :tabedit ~/.config/nvim/init.vim<CR>
 autocmd Filetype vim nnoremap <leader>pi :PlugInstall<CR>
+autocmd Filetype vim nnoremap <leader>pu :PlugUpdate<CR>
 autocmd Filetype vim nnoremap <leader>pc :PlugClean<CR>
 
 " Keybindings for commenting stuff out
-autocmd Filetype python noremap <leader>/ :norm I#<CR>
+autocmd Filetype python vnoremap <leader>/ :norm I#<CR>
 autocmd Filetype vim vnoremap <leader>/ :norm I"<CR>
 autocmd Filetype c++ vnoremap <leader>/ :norm I//<CR>
