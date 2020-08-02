@@ -2,8 +2,8 @@
 [ ! -n "$1" ] && printf "name of directory is required\n" && exit
 mkdir $1
 cd $1
-mkdir bin src
-touch Makefile src/main.cpp
+mkdir bin src obj 
+touch Makefile 
 echo "#include <iostream>" >> src/main.cpp
 echo "int main()" >> src/main.cpp
 echo "{" >> src/main.cpp
