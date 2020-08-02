@@ -6,10 +6,10 @@
 "   ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
 
 " Basic Settings
-source basicSettings.vim
+source ~/.config/nvim/basicSettings.vim
 
 " Keybindings 
-source keybindings.vim
+source ~/.config/nvim/keybindings.vim
 
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
